@@ -1,14 +1,16 @@
-name: CI/CD Workflow
-on:
-  push:
-    branches:
-      - main
+name: Copy File
+
+on: [push]
+
 jobs:
-  build:
+  copy-file:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Build and Test
-        run: |
-          # Your build and test commands here
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Copy File
+      run: |
+        # Use the 'cp' command to copy the contents of source.txt into destination.txt
+        cp index.html index2.html
